@@ -1,0 +1,16 @@
+# 忽略构建输出
+dist/
+build/
+
+# 忽略依赖库
+node_modules/
+
+# 忽略测试文件
+__tests__/
+
+# 忽略特定文件
+temp.js
+
+# 忽略特定文件类型
+*.min.js
+*.bundle.js

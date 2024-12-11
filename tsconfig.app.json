@@ -20,7 +20,11 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
-    "noUncheckedSideEffectImports": true
+    "noUncheckedSideEffectImports": true,
+    "baseUrl": ".", // 基础路径设置为项目根目录
+    "paths": {
+      "~/*": ["src/*"] // 配置 @ 别名指向 src 目录
+    }
   },
   "include": ["src"]
 }
