@@ -12,16 +12,14 @@ export function getUserInfo<T>(): ApiResponse<T> {
   return Get<T>(`https://test.api.toyfuns.top/jingzhudata/loginOut`);
 }
 export const getTotalStatisticsByProvince = () => {
-  return Get(
-    `https://api.jingzhudata.com/jingzhudata/home/getTotalStatisticsByProvince`,
-  );
+  return Get(`jingzhudata/home/getTotalStatisticsByProvince`);
 };
 export const getProjectListApi = (
   params: { pageNumber: number; pageSize: number },
   accountId: string,
 ) => {
   return Post(
-    `https://api.jingzhudata.com/jingzhudata/jingzhudata/manage/account/operation/record${accountId}`,
+    `/jingzhudata/manage/account/operation/record${accountId}`,
     params,
   );
 };
