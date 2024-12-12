@@ -6,15 +6,21 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
-    "lint": "eslint .",
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "prettier": "prettier --loglevel warn --write \"./**/*.{js,jsx,ts,tsx,json}\" "
+    "prettier": "prettier --loglevel warn --write \"./**/*.{js,jsx,ts,tsx,json}\" ",
+    "prepare": "husky"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx,json,scss,less}": [
       "pnpm lint:fix",
       "pnpm prettier --write"
     ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-customizable"
+    }
   },
   "dependencies": {
     "@ant-design/icons": "^5.5.2",
@@ -33,10 +39,13 @@
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",
     "@vitejs/plugin-react": "^4.3.4",
+    "commitizen": "^4.3.1",
     "eslint": "^9.15.0",
     "eslint-plugin-react-hooks": "^5.0.0",
     "eslint-plugin-react-refresh": "^0.4.14",
+    "eslint-plugin-simple-import-sort": "^12.1.1",
     "globals": "^15.12.0",
+    "husky": "^9.1.7",
     "less": "^4.2.1",
     "picocolors": "^1.1.1",
     "prettier": "^3.4.2",

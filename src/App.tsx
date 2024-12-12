@@ -1,34 +1,33 @@
-import { useState } from 'react';
+import { Button } from 'antd';
+// import { useState } from 'react';
+import { useEffect } from 'react';
 import './App.css';
-import reactLogo from './assets/react.svg';
-import viteLogo from '/vite.svg';
-
+import { api } from './services';
 function App() {
-  const [count, setCount] = useState(0);
-
+  const fetchData = async () => {
+    const [e, r] = await api.getProjectListApi(
+      { pageNumber: 1, pageSize: 10 },
+      '1',
+    );
+    console.log('--====', e, r);
+  };
+  const fetchData1 = async () => {
+    const [e, r] = await api.getUserInfo();
+    console.log('--====', e, r);
+  };
+  useEffect(() => {
+    fetchData();
+  }, []); // 空依赖数组，确保只在组件挂载时运行一次
   return (
-    <>
-      <div>
-        <a href='https://vite.dev' target='_blank'>
-          <img src={viteLogo} className='logo' alt='Vite logo' />
-        </a>
-        <a href='https://react.dev' target='_blank'>
-          <img src={reactLogo} className='logo react' alt='React logo' />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className='card'>
-        <button onClick={() => setCount(count => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className='read-the-docs'>
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <div>
+      <Button type='primary' onClick={fetchData1}>
+        Primary Button123
+      </Button>
+      {/* <Button>Default Button</Button>
+      <Button type='dashed'>Dashed Button</Button>
+      <Button type='text'>Text Button</Button>
+      <Button type='link'>Link Button</Button> */}
+    </div>
   );
 }
 

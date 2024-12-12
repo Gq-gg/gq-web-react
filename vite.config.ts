@@ -1,10 +1,10 @@
 import react from '@vitejs/plugin-react';
+import path from 'path';
+import colors from 'picocolors';
 import { defineConfig } from 'vite';
 import { chunkSplitPlugin } from 'vite-plugin-chunk-split';
 import CompressionWebpackPlugin from 'vite-plugin-compression';
 import progress from 'vite-plugin-progress';
-import colors from 'picocolors';
-import path from 'path';
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [
@@ -36,9 +36,15 @@ export default defineConfig({
       },
     },
   },
+  //引入文件别名 这里设置了 还需要在tsconfig.app.json 配置类型，不然引用会红色警告
+  //还需要提前下载types/node 依赖
   resolve: {
     alias: {
-      '~': path.resolve(__dirname, 'src/'),
+      '@pages': path.resolve(__dirname, 'src/', 'pages'),
+      '@components': path.resolve(__dirname, 'src/', 'components'),
+      '@stores': path.resolve(__dirname, 'src/', 'stores'),
+      '@services': path.resolve(__dirname, 'src/', 'services'),
+      '@utils': path.resolve(__dirname, 'src/', 'utils'),
     },
   },
   server: {

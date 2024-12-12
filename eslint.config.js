@@ -16,6 +16,7 @@ export default tseslint.config(
     plugins: {
       'react-hooks': reactHooks,
       'react-refresh': reactRefresh,
+      'simple-import-sort': simpleImportSort,
     },
     rules: {
       ...reactHooks.configs.recommended.rules,
@@ -23,7 +24,29 @@ export default tseslint.config(
         'warn',
         { allowConstantExport: true },
       ],
+      'simple-import-sort/exports': 'error',
       '@typescript-eslint/no-explicit-any': 'off',
+      'simple-import-sort/imports': [
+        'error',
+        {
+          groups: [
+            [
+              '^(node:|vite)',
+              '^react',
+              '^@?\\w',
+              '^@/components',
+              '^\\.\\.(?!/?$)',
+              '^\\.\\./?$',
+              '^\\./(?=.*/)(?!/?$)',
+              '^\\.(?!/?$)',
+              '^\\./?$',
+              '^@(utils|store|hooks|api|router)',
+            ],
+            ['antd/locale/zh_CN', 'dayjs/locale/zh-cn'],
+            ['^.+\\.s?css$'],
+          ],
+        },
+      ],
     },
   },
 );
