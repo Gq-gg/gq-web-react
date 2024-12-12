@@ -5,9 +5,7 @@ export const handleChangeRequestHeader = (
   config: InternalAxiosRequestConfig<any>,
 ) => {
   config.headers['Content-Type'] = 'application/json';
-  config.headers['X-Token'] =
-    localStorage.getItem('token') ||
-    'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJsb2dpblR5cGUiOiJsb2dpbiIsImxvZ2luSWQiOjEyLCJyblN0ciI6IlN5S2pHSlpTOEZaSGRDT0RsMk1qWGZ3N2dRWGF4ODNGIiwiaWQiOjEyfQ.pZ6wGSulC_YzdM1bggsTkMpkwPjB2I4xw0oVGu70JAg';
+  config.headers['X-Token'] = localStorage.getItem('token') || '';
   return config;
 };
 
@@ -18,7 +16,6 @@ export const handleChangeRequestHeader = (
 //   return config;
 // };
 export const handleNetworkError = (errStatus?: number): void => {
-  console.log('errStatus=========>>>>>>>>>>', errStatus);
   const networkErrMap: any = {
     400: '错误的请求', // token 失效
     401: '未授权，请重新登录',
