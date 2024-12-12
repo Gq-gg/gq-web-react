@@ -9,7 +9,7 @@
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "prettier": "prettier --loglevel warn --write \"./**/*.{js,jsx,ts,tsx,json}\" ",
-    "prepare": "husky"
+    "prepare": "husky && husky install"
   },
   "lint-staged": {
     "**/src/*.{js,jsx,ts,tsx}": [
@@ -39,19 +39,22 @@
     "recoil": "^0.7.7"
   },
   "devDependencies": {
+    "@commitlint/config-conventional": "^19.6.0",
     "@eslint/js": "^9.15.0",
     "@types/node": "^22.10.1",
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",
     "@vitejs/plugin-react": "^4.3.4",
     "commitizen": "^4.3.1",
+    "commitlint": "^19.6.0",
+    "commitlint-config-cz": "^0.13.3",
     "cz-customizable": "^7.3.0",
     "eslint": "^9.15.0",
     "eslint-plugin-react-hooks": "^5.0.0",
     "eslint-plugin-react-refresh": "^0.4.14",
     "eslint-plugin-simple-import-sort": "^12.1.1",
     "globals": "^15.12.0",
-    "husky": "^9.1.7",
+    "husky": "^8.0.0",
     "less": "^4.2.1",
     "lint-staged": "^15.2.11",
     "picocolors": "^1.1.1",
