@@ -52,5 +52,13 @@ export default defineConfig({
     port: 8800, // 设置端口
     open: true, // 启动后自动打开浏览器
     strictPort: true, // 在端口被占用时不自动使用其他端口
+    // proxy: {
+    //   '/XXX': {
+    //     target: 'https://XXX',
+    //     changeOrigin: true,
+    //     cookieDomainRewrite: '',
+    //     secure: false,
+    //   },
+    // },
   },
 });

@@ -1,8 +1,16 @@
 import { useRef } from 'react';
 
-type IuseThrottle = (fn: (...args: any[]) => any, delay?: number, dep?: boolean) => any;
+type IuseThrottle = (
+  fn: (...args: any[]) => any,
+  delay?: number,
+  dep?: boolean,
+) => any;
 
-export const useDebounce: IuseThrottle = (func, wait = 400, immediate = false) => {
+export const useDebounce: IuseThrottle = (
+  func,
+  wait = 400,
+  immediate = false,
+) => {
   const timeout = useRef<any>();
   const context = useRef<any>();
   const result = useRef<any>();

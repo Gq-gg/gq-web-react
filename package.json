@@ -12,9 +12,14 @@
     "prepare": "husky"
   },
   "lint-staged": {
-    "*.{js,jsx,ts,tsx,json,scss,less}": [
-      "pnpm lint:fix",
-      "pnpm prettier --write"
+    "**/src/*.{js,jsx,ts,tsx}": [
+      "eslint --fix --ext .ts,.tsx"
+    ],
+    "*.{js,jsx,,md,json}": [
+      "prettier --write"
+    ],
+    "*.ts?(x)": [
+      "prettier --parser=typescript --write"
     ]
   },
   "config": {
@@ -40,6 +45,7 @@
     "@types/react-dom": "^18.3.1",
     "@vitejs/plugin-react": "^4.3.4",
     "commitizen": "^4.3.1",
+    "cz-customizable": "^7.3.0",
     "eslint": "^9.15.0",
     "eslint-plugin-react-hooks": "^5.0.0",
     "eslint-plugin-react-refresh": "^0.4.14",
@@ -47,6 +53,7 @@
     "globals": "^15.12.0",
     "husky": "^9.1.7",
     "less": "^4.2.1",
+    "lint-staged": "^15.2.11",
     "picocolors": "^1.1.1",
     "prettier": "^3.4.2",
     "prettier-plugin-organize-imports": "^4.1.0",
