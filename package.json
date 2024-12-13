@@ -22,11 +22,14 @@
       "prettier --parser=typescript --write"
     ]
   },
-  "config": {
-    "commitizen": {
-      "path": "node_modules/cz-customizable"
-    }
-  },
+    "config": {
+      "commitizen": {
+        "path": "cz-customizable"
+      },
+      "cz-customizable": {
+        "config": ".cz-config.cjs"
+      }
+    },
   "dependencies": {
     "@ant-design/icons": "^5.5.2",
     "antd": "^5.22.4",
